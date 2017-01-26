@@ -1,0 +1,16 @@
+#ifndef SCOREPOP_H
+#define SCOREPOP_H
+
+
+#include <QGraphicsPixmapItem>
+#include <QObject>
+#include <QGraphicsItem>
+
+class ScorePop: public QObject, public QGraphicsPixmapItem{
+  Q_OBJECT
+public:
+  ScorePop(QGraphicsItem *parent = 0);
+public slots:
+  void move();
+};
+#endif // SCOREPOP_H

@@ -1,4 +1,4 @@
-#include "enemy.h"
+#include "healthpop.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <stdlib.h>
@@ -9,33 +9,11 @@
 
 extern Game *game;
 
-Enemy::Enemy(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
+HealthPop::HealthPop(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
   //set random number
-  randomMovePixel = Include::randomInInterval(8,15);
-  random_number = Include::randomInInterval(10,550);
+  int random_number = (rand() % game->displayHeight );
   setPos(game->displayWidth  , random_number);
- //drawing the rectangle
-  int randomPlane = (rand() % 4);
-  switch (randomPlane){
-    case 0:{
-      setPixmap(QPixmap(":/images/enemy_fly.png"));
-      break;
-     }
-    case 1:{
-      setPixmap(QPixmap(":/images/enemyII_fly.png"));
-      break;
-     }
-    case 2:{
-      setPixmap(QPixmap(":/images/enemyIII_fly.png"));
-      break;
-     }
-    case 3:{
-      setPixmap(QPixmap(":/images/enemyIV_fly.png"));
-      break;
-     }
-
-  }
-
+  setPixmap(QPixmap(":/images/healthInc.png"));
 
  QTimer *timer = new QTimer();
  connect(timer, SIGNAL(timeout()),this, SLOT(move()));
@@ -45,17 +23,13 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
 
 }
 
-void Enemy::move(){
+void HealthPop::move(){
 
   QList<QGraphicsItem *> colliding_items = collidingItems();
   for (int i=0, n=colliding_items.size();i<n; ++i){
       if (typeid(*(colliding_items[i])) == typeid(Player)){
           //decrease the health
-          game->health->decrease();
-          game->player->playerHit = 1;
-          //display hit image for 2 sec
-          game->player->setPixmap(QPixmap(":/images/player_hit.png"));
-
+          game->health->increase();
           //remove them both from scene (still exists on heap)
           //scene()->removeItem(colliding_items[i]); aka player
           scene()->removeItem(this);
@@ -66,9 +40,9 @@ void Enemy::move(){
         }
      }
  //move Enemy right
- setPos(x()-randomMovePixel,y());
+ setPos(x()-15,y());
 
- if(pos().x () < (-100)){
+ if(pos().x () < (-50)){
      scene()->removeItem(this);
      delete this;
    }

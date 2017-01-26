@@ -2,19 +2,24 @@
 #include <QFont>
 
 Health::Health(QGraphicsItem *parent): QGraphicsTextItem(parent){
-  health = 3; //initialized value of health
+  //initialize the score to 0
+  health = 3;
 
   //draw the text
-  setPlainText(QString("Health: ") + QString::number(health));
+  setPlainText(QString("Health: ")+ QString::number(health));
   setDefaultTextColor(Qt::red);
   setFont(QFont("times",16));
+
 }
 
-void Health::decrease()
-{
+void Health::decrease(){
   health--;
-  //draw the text
-  setPlainText(QString("Health: ") + QString::number(health));
+  setPlainText(QString("Health: ")+ QString::number(health));
+}
+
+void Health::increase(){
+  health++;
+  setPlainText(QString("Health: ")+ QString::number(health));
 }
 
 int Health::getHealth(){

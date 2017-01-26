@@ -1,22 +1,19 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QGraphicsItem>
 
-
-
-//in order to support signal and slots one has to inherit from QObject and has to add Q_OBJECT macro
-class Enemy: public QObject,public QGraphicsRectItem{
-private:
+class Enemy: public QObject, public QGraphicsPixmapItem{
   Q_OBJECT
 public:
-  Enemy(QGraphicsItem *parent=0);
-
+  Enemy(QGraphicsItem *parent = 0);
 public slots:
   void move();
+private:
+  int randomMovePixel;
+  int random_number;
 };
 
-
-#endif // ENEMY_H
+#endif // Enemy_H

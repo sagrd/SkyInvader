@@ -1,53 +1,81 @@
-#include <QGraphicsScene>
 #include "game.h"
+#include <QGraphicsTextItem>
+#include "enemy.h"
 #include <QGraphicsView>
 #include <QTimer>
-#include "enemy.h"
-#include <QGraphicsTextItem>
 #include <QFont>
+#include "player.h"
 #include <QMediaPlayer>
+#include <QImage>
+#include "include.h"
 
-Game::Game(QWidget *parent){
-  QGraphicsScene *scene = new QGraphicsScene();
-  scene->setSceneRect(0,0,800,600);
-  //disable horizontal and vertical scrollbar
+
+
+
+Game::Game(){
+  //Constants
+  displayWidth = Include::screenWidth();
+  displayHeight = Include::screenHeight();
+
+  //create a scene and player
+  scene = new QGraphicsScene();
+  scene->setSceneRect(0,0,displayWidth,displayHeight);
+  setBackgroundBrush(QBrush(QImage(":/images/BackGround_fix.png")));
+
+  //adding the "scene"
   setScene(scene);
   setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  //setting the size of view and scene
-  setFixedSize(800,600);
+  setFixedSize(displayWidth,displayHeight);
 
-  Player *player = new Player();
-  player->setRect(0,0,100,100);
-  player->setPos(400,500);
 
-  //make rect focusable as focusable item
+  player = new Player();
+  //player set position
+  player->setPos(0, scene->height()/2 - 35);
+  player->setZValue(0);
+
+  //player to enable keyboard events
   player->setFlag(QGraphicsItem::ItemIsFocusable);
   player->setFocus();
-  //adding the item to the scene
   scene->addItem(player);
 
-  //adds the view
-  //QGraphicsView *view = new QGraphicsView(scene);
 
-  //creates the score
+  //spawn enemies
+  QTimer *timer = new QTimer();
+  QObject::connect(timer, SIGNAL(timeout()),player, SLOT(spawn()));
+  timer->start(2000); //enemy after 2000 ms
+
+  //spawn ships
+  QTimer *shipTimer = new QTimer();
+  QObject::connect(shipTimer, SIGNAL(timeout()),player, SLOT(spawnShip()));
+  shipTimer->start(10000); //enemy after 2000 ms
+
+  //spawn scorePop
+  QTimer *scorePop = new QTimer();
+  QObject::connect(scorePop, SIGNAL(timeout()),player, SLOT(spawnHealthPop()));
+  scorePop->start(35000);
+
+  //spawn CloudTimer
+  QTimer *frontCloudTimer = new QTimer();
+  QObject::connect(frontCloudTimer, SIGNAL(timeout()), player, SLOT(spawnFrontCloud()));
+  frontCloudTimer->start(5000); //cloud after 5 sec
+
+  QTimer *backCloudTimer = new QTimer();
+  QObject::connect(backCloudTimer, SIGNAL(timeout()), player, SLOT(spawnBackCloud()));
+  backCloudTimer->start(10000); //cloud after 10 sec
+
+  //create score and health
   score = new Score();
   scene->addItem(score);
   health = new Health();
   health->setPos(health->x(), health->y()+25);
   scene->addItem(health);
 
-  //spawn enemies constantly
-  QTimer *timer= new QTimer();
-  QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
-  timer->start(2000);
+  //play bg music
+//  QMediaPlayer *music = new QMediaPlayer();
+//  music->setMedia(QUrl("qrc:/sounds/bgsound.wav"));
+//  music->play();
 
-  //playbackground music
-  QMediaPlayer *music = new QMediaPlayer();
-  music->setMedia(QUrl("qrc:/sounds/sky.wav"));
-  music->play();
-
-  //bullet music
-
-  show();
+  //show();
 }
+

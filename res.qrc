@@ -1,12 +1,26 @@
 <RCC>
     <qresource prefix="/sounds">
-        <file>shotgun.mp3</file>
-        <file>sky.wav</file>
+        <file>bgsound.wav</file>
+        <file>bullet.mp3</file>
     </qresource>
     <qresource prefix="/images">
-        <file>bg.png</file>
-        <file>enemy.png</file>
-        <file>player.png</file>
-        <file>bullet.png</file>
+        <file>BackGround_fix.png</file>
+        <file>bullet_const.png</file>
+        <file>enemy_fly.png</file>
+        <file>player_fly.png</file>
+        <file>enemyII_fly.png</file>
+        <file>enemyIII_fly.png</file>
+        <file>enemyIV_fly.png</file>
+        <file>player_hit.png</file>
+        <file>cloudI.png</file>
+        <file>cloudV.png</file>
+        <file>healthInc.png</file>
+        <file>tower.png</file>
+        <file>city1aft.png</file>
+        <file>city1bef.png</file>
+        <file>city2aft.png</file>
+        <file>city2bef.png</file>
+        <file>city3aft.png</file>
+        <file>city3bif.png</file>
     </qresource>
 </RCC>
