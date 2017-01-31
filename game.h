@@ -11,6 +11,9 @@
 #include "include.h"
 #include "cloudfront.h"
 #include "cloudback.h"
+#include "ship.h"
+#include "wallpaper.h"
+
 
 class Game: public QGraphicsView{
 public:
@@ -23,9 +26,6 @@ public:
   Player * player;
   Score *score;
   Health *health;
-
-
-
 };
 
 #endif // GAME_H

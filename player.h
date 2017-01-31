@@ -17,6 +17,8 @@ public slots:
   void spawnBackCloud();
   void spawnHealthPop();
   void spawnShip();
+  void spawnCity();
+  void wallpaper();
 
 private:
   QMediaPlayer *bulletsound;

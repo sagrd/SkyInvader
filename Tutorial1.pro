@@ -25,7 +25,9 @@ SOURCES += main.cpp \
     cloudback.cpp \
     healthpop.cpp \
     ship.cpp \
-    missileenemy.cpp
+    missileenemy.cpp \
+    city.cpp \
+    wallpaper.cpp
 
 HEADERS  += \
     bullet.h \
@@ -39,7 +41,9 @@ HEADERS  += \
     cloudback.h \
     healthpop.h \
     ship.h \
-    missileenemy.h
+    missileenemy.h \
+    city.h \
+    wallpaper.h
 
 RESOURCES += \
     res.qrc

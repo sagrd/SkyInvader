@@ -34,6 +34,8 @@ Game::Game(){
   player->setPos(0, scene->height()/2 - 35);
   player->setZValue(0);
 
+
+
   //player to enable keyboard events
   player->setFlag(QGraphicsItem::ItemIsFocusable);
   player->setFocus();
@@ -45,24 +47,29 @@ Game::Game(){
   QObject::connect(timer, SIGNAL(timeout()),player, SLOT(spawn()));
   timer->start(2000); //enemy after 2000 ms
 
+  player->wallpaper();
+
   //spawn ships
-  QTimer *shipTimer = new QTimer();
-  QObject::connect(shipTimer, SIGNAL(timeout()),player, SLOT(spawnShip()));
-  shipTimer->start(10000); //enemy after 2000 ms
+  QTimer *cityTimer = new QTimer();
+  QObject::connect(cityTimer, SIGNAL(timeout()),player, SLOT(spawnShip()));
+  cityTimer->start(15000); //enemy after 2000 ms
 
   //spawn scorePop
   QTimer *scorePop = new QTimer();
   QObject::connect(scorePop, SIGNAL(timeout()),player, SLOT(spawnHealthPop()));
   scorePop->start(35000);
 
-  //spawn CloudTimer
+  //spawn Clouds
   QTimer *frontCloudTimer = new QTimer();
   QObject::connect(frontCloudTimer, SIGNAL(timeout()), player, SLOT(spawnFrontCloud()));
-  frontCloudTimer->start(5000); //cloud after 5 sec
-
+  frontCloudTimer->start(6000); //cloud after 5 sec
   QTimer *backCloudTimer = new QTimer();
   QObject::connect(backCloudTimer, SIGNAL(timeout()), player, SLOT(spawnBackCloud()));
-  backCloudTimer->start(10000); //cloud after 10 sec
+  backCloudTimer->start(15000); //cloud after 10 sec
+
+  QTimer *shipTimer = new QTimer();
+  QObject::connect(shipTimer, SIGNAL(timeout()), player, SLOT(spawnCity()));
+  shipTimer->start(30000);
 
   //create score and health
   score = new Score();

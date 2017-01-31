@@ -1,5 +1,5 @@
-#ifndef SHIP_H
-#define SHIP_H
+#ifndef CITY_H
+#define CITY_H
 
 
 #include <QGraphicsPixmapItem>
@@ -8,10 +8,10 @@
 #include <QGraphicsPolygonItem>
 #include <QPointF>
 
-class Ship: public QObject, public QGraphicsPixmapItem{
+class City: public QObject, public QGraphicsPixmapItem{
   Q_OBJECT
 public:
-  Ship(QGraphicsItem *parent = 0);
+  City(QGraphicsItem *parent = 0);
   double distanceTo(QGraphicsItem *item);
   void fire();
 public slots:
@@ -23,4 +23,4 @@ private:
   bool has_target = true;
 };
 
-#endif // SHIP_H
+#endif // CITY_H

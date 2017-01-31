@@ -8,6 +8,8 @@
 #include "cloudback.h"
 #include "healthpop.h"
 #include "ship.h"
+#include "city.h"
+#include "wallpaper.h"
 
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
@@ -91,4 +93,13 @@ void Player::spawnShip(){
   scene()->addItem(ship);
 }
 
+void Player::spawnCity(){
+  City *city = new City();
+  scene()->addItem(city);
+}
+
+void Player::wallpaper(){
+  WallPaper *wallpaper = new WallPaper();
+  scene()->addItem(wallpaper);
+}
 

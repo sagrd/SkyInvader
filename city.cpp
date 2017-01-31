@@ -1,4 +1,4 @@
-#include "ship.h"
+#include "city.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <stdlib.h>
@@ -16,10 +16,10 @@
 
 extern Game *game;
 
-Ship::Ship(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
+City::City(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
   //setPos(game->displayWidth  , game->displayHeight -150); //ship
-  setPos(game->displayWidth  , game->displayHeight/2);
-  setPixmap(QPixmap(":/images/ship.png"));
+  setPos(game->displayWidth  , game->displayHeight - 150);
+  setPixmap(QPixmap(":/images/city1bef.png"));
 
 
   //create point vector and pl
@@ -32,7 +32,7 @@ Ship::Ship(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
   attack_area->setPen(QPen(Qt::DashLine));
 
   //QPointF poly_center(1750,600); //NFQ for ship
-  QPointF poly_center(2500,850);
+  QPointF poly_center(2500,1300);
   //relative to scene rather to the tower
   poly_center = mapToScene(poly_center);
   //center of tower
@@ -46,19 +46,19 @@ Ship::Ship(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
   connect(shootTimer, SIGNAL(timeout()), this, SLOT(acquire_target()));
   shootTimer->start(1000);
 
-//timer to move ship
+//timer to move city
  QTimer *timer = new QTimer();
  connect(timer, SIGNAL(timeout()),this, SLOT(move()));
  timer->start(50);
 
 }
 
-double Ship::distanceTo(QGraphicsItem *item){
+double City::distanceTo(QGraphicsItem *item){
   QLineF ln(pos(),item->pos());
 return ln.length();
 }
 
-void Ship::fire(){
+void City::fire(){
 
 
   //line betweenn these two points
@@ -73,7 +73,7 @@ void Ship::fire(){
   scene()->addItem(missile);
 }
 
-void Ship::move(){
+void City::move(){
 
   QList<QGraphicsItem *> colliding_items = collidingItems();
   for (int i=0, n=colliding_items.size();i<n; ++i){
@@ -95,8 +95,7 @@ void Ship::move(){
    }
 }
 
-void Ship::acquire_target(){
-
+void City::acquire_target(){
   QList<QGraphicsItem *> colliding_items = attack_area->collidingItems();
   //ship is always colliding in attack area
   if(colliding_items.size() == 1){
