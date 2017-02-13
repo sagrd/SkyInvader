@@ -1,5 +1,9 @@
 # FlightShooter
-Game based on QT library, C++.rr
+Game based on QT library, C++.
+
+#Screenshot
+![Alt text](sshots/ScreenShotI.png)
+![Alt text](sshots/ScreenShotII.png)
 
 
 TO DO:
