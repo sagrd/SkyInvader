@@ -26,6 +26,7 @@ public:
   Player * player;
   Score *score;
   Health *health;
+  //wallpaper here
 };
 
 #endif // GAME_H
