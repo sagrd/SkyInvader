@@ -10,7 +10,8 @@
 extern Game *game;
 
 Enemy::Enemy(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
-  //set random number
+  setZValue(-0.1);
+    //set random number
   randomMovePixel = Include::randomInInterval(8,15);
   random_number = Include::randomInInterval(10,550);
   setPos(game->displayWidth  , random_number);
@@ -18,19 +19,19 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
   int randomPlane = (rand() % 4);
   switch (randomPlane){
     case 0:{
-      setPixmap(QPixmap(":/images/enemy_fly.png"));
+      setPixmap(QPixmap(":/images/Sprites/enemy_fly.png"));
       break;
      }
     case 1:{
-      setPixmap(QPixmap(":/images/enemyII_fly.png"));
+      setPixmap(QPixmap(":/images/Sprites/enemyII_fly.png"));
       break;
      }
     case 2:{
-      setPixmap(QPixmap(":/images/enemyIII_fly.png"));
+      setPixmap(QPixmap(":/images/Sprites/enemyIII_fly.png"));
       break;
      }
     case 3:{
-      setPixmap(QPixmap(":/images/enemyIV_fly.png"));
+      setPixmap(QPixmap(":/images/Sprites/enemyIV_fly.png"));
       break;
      }
 
@@ -52,12 +53,10 @@ void Enemy::move(){
       if (typeid(*(colliding_items[i])) == typeid(Player)){
           //decrease the health
           game->health->decrease();
-          game->player->playerHit = 1;
-          //display hit image for 2 sec
-          game->player->setPixmap(QPixmap(":/images/player_hit.png"));
-
-          //remove them both from scene (still exists on heap)
-          //scene()->removeItem(colliding_items[i]); aka player
+          if(game->player){
+              game->player->setPixmap(QPixmap(":/images/Sprites/player_hit.png"));
+              game->player->playerHit = 1;
+          }
           scene()->removeItem(this);
           //delete them both
           //delete colliding_items[i];

@@ -9,8 +9,8 @@
 extern Game *game;
 
 void CloudFront::randomCloudGenerator(){
-  setZValue(1);
-      setPixmap(QPixmap(":/images/cloudV.png"));
+  setZValue(3);
+      setPixmap(QPixmap(":/images/Sprites/cloudV.png"));
 
 }
 

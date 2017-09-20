@@ -17,9 +17,10 @@
 extern Game *game;
 
 Ship::Ship(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
+   setZValue(-0.1);
   //setPos(game->displayWidth  , game->displayHeight -150); //ship
-  setPos(game->displayWidth  , game->displayHeight/2);
-  setPixmap(QPixmap(":/images/ship.png"));
+  setPos(game->displayWidth  , Include::randomInInterval(150, game->displayHeight-150));
+  setPixmap(QPixmap(":/images/Sprites/ship.png"));
 
 
   //create point vector and pl
@@ -29,7 +30,7 @@ Ship::Ship(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
   QPolygonF attackRect(points);
 
   attack_area = new QGraphicsPolygonItem(attackRect, this);
-  attack_area->setPen(QPen(Qt::DashLine));
+  attack_area->setPen(QPen(Qt::transparent));
 
   //QPointF poly_center(1750,600); //NFQ for ship
   QPointF poly_center(2500,850);
@@ -80,6 +81,10 @@ void Ship::move(){
       if (typeid(*(colliding_items[i])) == typeid(Player)){
 
           game->health->decrease();
+          if(game->player){
+              game->player->setPixmap(QPixmap(":/images/Sprites/player_hit.png"));
+              game->player->playerHit = 1;
+          }
           scene()->removeItem(this);
           //delete colliding_items[i];
           delete this;

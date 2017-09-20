@@ -1,25 +1,36 @@
 <RCC>
     <qresource prefix="/images">
-        <file>BackGround_fix.png</file>
-        <file>bullet_const.png</file>
-        <file>cloudI.png</file>
-        <file>cloudV.png</file>
-        <file>enemy_fly.png</file>
-        <file>enemyII_fly.png</file>
-        <file>enemyIII_fly.png</file>
-        <file>enemyIV_fly.png</file>
-        <file>healthInc.png</file>
-        <file>missile_const.png</file>
-        <file>plane.png</file>
-        <file>player_fly.png</file>
-        <file>player_hit.png</file>
-        <file>ship.png</file>
-        <file>tower.png</file>
-        <file>black.png</file>
-        <file>city1bef.png</file>
+        <file>Sprites/BackGround-fix.png</file>
+        <file>Sprites/bullet_const.png</file>
+        <file>Sprites/city1bef.png</file>
+        <file>Sprites/cloudI.png</file>
+        <file>Sprites/enemy_fly.png</file>
+        <file>Sprites/enemyII_fly.png</file>
+        <file>Sprites/enemyIII_fly.png</file>
+        <file>Sprites/enemyIV_fly.png</file>
+        <file>Sprites/fabicon.png</file>
+        <file>Sprites/frontscreen.png</file>
+        <file>Sprites/healthInc.png</file>
+        <file>Sprites/info.png</file>
+        <file>Sprites/missile_const.png</file>
+        <file>Sprites/plant2.png</file>
+        <file>Sprites/player_fly.png</file>
+        <file>Sprites/player_hit.png</file>
+        <file>Sprites/ship.png</file>
+        <file>Sprites/cloudV.png</file>
+        <file>Sprites/warrior.png</file>
+        <file>Sprites/board.png</file>
+        <file>Sprites/general.png</file>
+        <file>Sprites/bar0.png</file>
+        <file>Sprites/bar1.png</file>
+        <file>Sprites/bar2.png</file>
+        <file>Sprites/bar3.png</file>
+        <file>Sprites/bar4.png</file>
+        <file>Sprites/bar5.png</file>
+        <file>Sprites/bar6.png</file>
     </qresource>
     <qresource prefix="/sounds">
-        <file>bgsound.wav</file>
-        <file>bullet.mp3</file>
+        <file>Sprites/bgsound.wav</file>
+        <file>Sprites/bullet.mp3</file>
     </qresource>
 </RCC>

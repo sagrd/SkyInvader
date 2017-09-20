@@ -13,7 +13,8 @@ HealthPop::HealthPop(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(paren
   //set random number
   int random_number = (rand() % game->displayHeight );
   setPos(game->displayWidth  , random_number);
-  setPixmap(QPixmap(":/images/healthInc.png"));
+  setPixmap(QPixmap(":/images/Sprites/healthInc.png"));
+  setZValue(-0.1);
 
  QTimer *timer = new QTimer();
  connect(timer, SIGNAL(timeout()),this, SLOT(move()));

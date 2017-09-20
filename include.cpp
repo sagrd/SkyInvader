@@ -1,5 +1,5 @@
 #include "include.h"
-#include "Game.h"
+#include "game.h"
 #include <QDesktopWidget>
 
 

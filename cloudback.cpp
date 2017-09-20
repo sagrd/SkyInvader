@@ -10,7 +10,7 @@ extern Game *game;
 
 void CloudBack::randomCloudGenerator(){
   setZValue(-1);
-  setPixmap(QPixmap(":/images/cloudI.png"));
+  setPixmap(QPixmap(":/images/Sprites/cloudI.png"));
 }
 
 CloudBack::CloudBack(QGraphicsItem *parent): QObject(),QGraphicsPixmapItem(parent){
