@@ -44,10 +44,11 @@ Game::Game(){
   treeTimer->start(1700);
 
   //play bg music
-  music = new QMediaPlayer();
-  music->setMedia(QUrl("qrc:/sounds/Sprites/bgsound.wav"));
-  music->play();
+//  music = new QMediaPlayer();
+//  music->setMedia(QUrl("qrc:/sounds/Sprites/bgsound.wav"));
+//  music->play();
 
+  //show();
 }
 
 void Game::start(){
@@ -175,25 +176,30 @@ void Game::displayMainMenu(){
           q = "General:\n\n"
               "What did they taught you at militiary academy?\n\n"
               "Remember!\n"
-              "Arrow keys to control your airplane. Space to fire.";
+              "Arrow keys to control your airplane. Space to fire."
+              "\n\n\n\nhttp://i.sagardhungel.com.np";
+
         }
       else if((score->getScore()) < 100){
           q = "General:\n\n"
               "I will miss the plane more.\n\n"
               "Remember!\n"
-              "Arrow keys to control your airplane. Space to fire.";
+              "Arrow keys to control your airplane. Space to fire."
+              "\n\n\n\nhttp://i.sagardhungel.com.np";
         }
       else if((score->getScore()) < 250){
           q = "General:\n\n"
               "Maybe I expected more than I should.\n\n"
               "Remember!\n"
-              "Arrow keys to control your airplane. Space to fire.";
+              "Arrow keys to control your airplane. Space to fire."
+              "\n\n\n\nhttp://i.sagardhungel.com.np";
         }
       else if((score->getScore()) >= 250){
           q = "General:\n\n"
               "Well done! You shalt be remembered.\n\n"
               "Remember!\n"
-              "Arrow keys to control your airplane. Space to fire.";
+              "Arrow keys to control your airplane. Space to fire."
+              "\n\n\n\nhttp://i.sagardhungel.com.np";
         }
     }
     storyText = new QGraphicsTextItem(q);

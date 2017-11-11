@@ -14,12 +14,10 @@ INPUT(
 ./debug\missileenemy.o
 ./debug\button.o
 ./debug\tree.o
-./debug\boss.o
 ./debug\qrc_res.o
 ./debug\moc_bullet.o
 ./debug\moc_enemy.o
 ./debug\moc_game.o
-./debug\moc_player.o
 ./debug\moc_cloudfront.o
 ./debug\moc_cloudback.o
 ./debug\moc_healthpop.o
@@ -27,5 +25,4 @@ INPUT(
 ./debug\moc_missileenemy.o
 ./debug\moc_button.o
 ./debug\moc_tree.o
-./debug\moc_boss.o
 );

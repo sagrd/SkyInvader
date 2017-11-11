@@ -61,7 +61,6 @@ void Bullet::move(){
           //remove them both from scene (still exists on heap)
           scene()->removeItem(colliding_items[i]);
           scene()->removeItem(this);
-          game->player->noOfBullet--;
           game->player->bulletPixmap();
 
           //delete them both

@@ -14,12 +14,10 @@ INPUT(
 ./release\missileenemy.o
 ./release\button.o
 ./release\tree.o
-./release\boss.o
 ./release\qrc_res.o
 ./release\moc_bullet.o
 ./release\moc_enemy.o
 ./release\moc_game.o
-./release\moc_player.o
 ./release\moc_cloudfront.o
 ./release\moc_cloudback.o
 ./release\moc_healthpop.o
@@ -27,5 +25,4 @@ INPUT(
 ./release\moc_missileenemy.o
 ./release\moc_button.o
 ./release\moc_tree.o
-./release\moc_boss.o
 );

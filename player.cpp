@@ -10,8 +10,8 @@ extern Game *game;
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
    //qDebug()<<"player created";
-  bulletsound = new QMediaPlayer();
-  bulletsound->setMedia(QUrl("qrc:/sounds/Sprites/bullet.mp3"));
+  //bulletsound = new QMediaPlayer();
+  //bulletsound->setMedia(QUrl("qrc:/sounds/Sprites/bullet.mp3"));
 
   setPixmap(QPixmap(":/images/Sprites/player_fly.png"));
 

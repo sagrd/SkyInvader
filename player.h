@@ -3,7 +3,7 @@
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
-#include <QMediaPlayer>
+//#include <QMediaPlayer>
 
 class Player: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
@@ -16,7 +16,7 @@ public:
   QGraphicsPixmapItem *bar;
 
 private:
-  QMediaPlayer *bulletsound;
+ // QMediaPlayer *bulletsound;
 
 
 public slots:

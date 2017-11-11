@@ -5,7 +5,7 @@
 #include <QWidget>
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
-#include <QMediaPlayer>
+//#include <QMediaPlayer>
 
 #include "player.h"
 #include "score.h"
@@ -49,7 +49,7 @@ public:
   void createBoss();
 
 private:
-  QMediaPlayer *music;
+  //QMediaPlayer *music;
   QGraphicsTextItem *storyText;
   QGraphicsTextItem *quoteText;
   QGraphicsPixmapItem *frontscreen;
