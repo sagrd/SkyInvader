@@ -1,5 +1,5 @@
 # SkyInvader
-SkyInvader is
+
 
 ## Screenshot
 ![Sagar Dhungel](screenshot/skyinvader1.png)
@@ -20,19 +20,8 @@ What things you need to install the software and how to install them
 
 ```
 1. QtCreator
-2. For creating bootloader: grub (linux)
-3. gcc compiler
 
-```
 
-### Installing
-
-```
-[QT For Windows](https://en.wikipedia.org/wiki/X86_assembly_language)
-
-Linux:
-1. nasm -f elf32 kernel/source/kernel.asm -o kernel/objfiles/kerasm.o
-2. gcc -m32 -c kernel/source/kernel.c -o kernel/objfiles/kerc.o -ffreestanding
 ```
 
 
@@ -49,7 +38,5 @@ Linux:
 1. Boss Activity module
 2. A lot of things
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) file for details
 
